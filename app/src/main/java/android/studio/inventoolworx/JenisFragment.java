@@ -16,9 +16,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
-import android.widget.Toast;
-
-import java.util.HashMap;
 
 public class JenisFragment extends ListFragment implements OnItemClickListener {
     @Override
@@ -48,8 +45,8 @@ public class JenisFragment extends ListFragment implements OnItemClickListener {
     }
 
     @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position,long id) {
-        Intent intent = new Intent(getActivity(), test2Activity.class);
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Intent intent = new Intent(getActivity(), UkuranActivity.class);
         startActivity(intent);
     }
 }

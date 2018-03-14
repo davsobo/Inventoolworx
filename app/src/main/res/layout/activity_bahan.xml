@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="android.studio.inventoolworx.test3Activity">
+    tools:context="android.studio.inventoolworx.BahanActivity">
     <fragment
         android:id="@+id/fragment2"
-        android:name="android.studio.inventoolworx.UkuranFragment"
+        android:name="android.studio.inventoolworx.BahanFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         />

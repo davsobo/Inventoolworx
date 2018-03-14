@@ -14,7 +14,7 @@ import android.widget.ArrayAdapter;
  * Created by David on 3/14/2018.
  */
 
-public class UkuranFragment extends ListFragment implements AdapterView.OnItemClickListener {
+public class MerkFragment extends ListFragment implements AdapterView.OnItemClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -43,7 +43,7 @@ public class UkuranFragment extends ListFragment implements AdapterView.OnItemCl
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Intent intent = new Intent(getActivity(), BahanActivity.class);
+        Intent intent = new Intent(getActivity(), ResultActivity.class);
         startActivity(intent);
     }
 }

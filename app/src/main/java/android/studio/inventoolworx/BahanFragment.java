@@ -35,7 +35,7 @@ public class BahanFragment extends ListFragment implements AdapterView.OnItemCli
 //            Log.d("RMAP Entry", "onCreate: IM HERE IN THE LOOP");
 //        }
 //        ArrayAdapter adapter = new ArrayAdapter(getActivity(),android.R.layout.simple_list_item_1, testArray1);
-        ArrayAdapter adapter = ArrayAdapter.createFromResource(getActivity(), R.array.numbers, android.R.layout.simple_list_item_1);
+        ArrayAdapter adapter = ArrayAdapter.createFromResource(getActivity(), R.array.test, android.R.layout.simple_list_item_1);
         setListAdapter(adapter);
         Log.d("RMAP Entry", "onCreate: IM HERE AFTER THE LOOP");
         getListView().setOnItemClickListener(this);
@@ -43,7 +43,7 @@ public class BahanFragment extends ListFragment implements AdapterView.OnItemCli
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Intent intent = new Intent(getActivity(), Result1Activity.class);
+        Intent intent = new Intent(getActivity(), MerkActivity.class);
         startActivity(intent);
     }
 }

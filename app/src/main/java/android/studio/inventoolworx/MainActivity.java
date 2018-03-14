@@ -1,25 +1,16 @@
 package android.studio.inventoolworx;
 
 import android.content.Intent;
-import android.os.Build;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.webkit.CookieManager;
-import android.webkit.CookieSyncManager;
-import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-import org.json.JSONObject;
-
-import java.util.Collection;
 import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -63,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
                         new UserRequest.ServerCallback() {
                             @Override
                             public void onSuccess(String result) {
-                                Log.d("JSON SUCCESS", "onSuccess: "+result);
+                                Log.d("JSON SUCCESS", "onSuccess: " + result);
                             }
                         }
                 );
@@ -78,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
 
     //*****-----Ini buat ganti ke page berikutnya-----*****//
     public void sendMessage(View view) {
-        Intent intent = new Intent(MainActivity.this, test1Activity.class);
+        Intent intent = new Intent(MainActivity.this, JenisActivity.class);
         startActivity(intent);
         finish();
     }

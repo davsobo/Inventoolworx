@@ -34,9 +34,11 @@ public class UserData {
     public static ArrayList<String> mapLokasi;
 
 
-    /** Use This Instead for the Spinner SH*T*/
+    /**
+     * Use This Instead for the Spinner SH*T
+     */
     public static ArrayList<String> valSpinner = new ArrayList<String>();
-    public static Map<Integer,String> mapSpinner = new HashMap<Integer, String>();
+    public static Map<Integer, String> mapSpinner = new HashMap<Integer, String>();
 
 //    public static Map<String, Map<String, String>> mapInventory = new HashMap<String, Map<String, String>>();
 
@@ -70,7 +72,7 @@ public class UserData {
                             try {
                                 JSONArray mInventory = new JSONArray(response);
 
-                                Log.d("LOL",response);
+                                Log.d("LOL", response);
 
                                 mapMerk = new ArrayList<String>();
                                 mapTipe = new ArrayList<String>();
@@ -78,7 +80,7 @@ public class UserData {
                                 mapBahan = new ArrayList<String>();
                                 mapJumlah = new ArrayList<String>();
                                 mapLokasi = new ArrayList<String>();
-                                Log.d("Json Response: Inventory", "INVENTORY FETCH SUCCESS : "+  mInventory.length()+ "DATA");
+                                Log.d("Json Response: Inventory", "INVENTORY FETCH SUCCESS : " + mInventory.length() + "DATA");
                                 for (int i = 0; i < mInventory.length(); i++) {
                                     /*String temp = mInventory.getJSONObject(i).getString("merk") +  "\t" +  mInventory.getJSONObject(i).getString("tipe") +  "\t" +  mInventory.getJSONObject(i).getString("ukuran") +  "\t" +  mInventory.getJSONObject(i).getString("bahan") +  "\t" +  mInventory.getJSONObject(i).getString("jumlah") +  "\t" +  mInventory.getJSONObject(i).getString("lokasi");
                                     valSpinner.add(temp);
@@ -90,7 +92,7 @@ public class UserData {
                                     mapBahan.add(mInventory.getJSONObject(i).getString("bahan"));
                                     mapJumlah.add(mInventory.getJSONObject(i).getString("jumlah"));
                                     mapLokasi.add(mInventory.getJSONObject(i).getString("lokasi"));
-                                    Log.d("Json Response: Inventory","i = " + i + "\t" + mInventory.getJSONObject(i).getString("merk") +  "\t" +  mInventory.getJSONObject(i).getString("tipe") +  "\t" +  mInventory.getJSONObject(i).getString("ukuran") +  "\t" +  mInventory.getJSONObject(i).getString("bahan") +  "\t" +  mInventory.getJSONObject(i).getString("jumlah") +  "\t" +  mInventory.getJSONObject(i).getString("lokasi"));
+                                    Log.d("Json Response: Inventory", "i = " + i + "\t" + mInventory.getJSONObject(i).getString("merk") + "\t" + mInventory.getJSONObject(i).getString("tipe") + "\t" + mInventory.getJSONObject(i).getString("ukuran") + "\t" + mInventory.getJSONObject(i).getString("bahan") + "\t" + mInventory.getJSONObject(i).getString("jumlah") + "\t" + mInventory.getJSONObject(i).getString("lokasi"));
                                 }
                                 //mapInventory.put("merk", mapMerk);
 //                                mapInventory.put("tipe", mapTipe);
@@ -156,17 +158,19 @@ public class UserData {
 //    ==================================================================
 
     /**
-    NOTE: ISI VARIABLE remainMap DULU BARU DIJALANIN remainDataInventory nya
-     "merk"
-     "tipe"
-     "ukuran"
-     "bahan"
-    */
-    public interface VolleyCallback{
+     * NOTE: ISI VARIABLE remainMap DULU BARU DIJALANIN remainDataInventory nya
+     * "merk"
+     * "tipe"
+     * "ukuran"
+     * "bahan"
+     */
+    public interface VolleyCallback {
         void onSuccess(String string);
     }
-    public static Map<String,String> remainMap = new HashMap<>();
+
+    public static Map<String, String> remainMap = new HashMap<>();
     private static int remain = 0;
+
     public static Integer remainDataInventory(Context context, final VolleyCallback callback) {
         //Creating a string request
         StringRequest stringRequest = new StringRequest(Request.Method.POST, DBConnection.INVENTORY_URL,
@@ -230,7 +234,6 @@ public class UserData {
         Volley.newRequestQueue(context).add(stringRequest);
         return remain;
     }
-
 
 
 }

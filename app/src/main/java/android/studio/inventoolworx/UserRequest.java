@@ -22,35 +22,33 @@ import java.util.Map;
  */
 
 public class UserRequest {
-/**
-
-++++++++++++++++++USAGE+++++++++++++++++++++
-
-UserRequest.fetchData(
-    getApplicationContext(),
-    <URL></URL>,
-    new HashMap<String, String>() {{
-        put("function", "VIEW_ALL");
-        <PARAMETERS></PARAMETERS>
-    }},
-    new UserRequest.ServerCallback() {
-        @Override
-        public void onSuccess(String result) {
-            Log.d("JSON SUCCESS", "onSuccess: "+result);
-            <DO SOMETHING AFTER SUCCESS>
-        }
-    }
-);
-
-*/
+    /**
+     * ++++++++++++++++++USAGE+++++++++++++++++++++
+     * <p>
+     * UserRequest.fetchData(
+     * getApplicationContext(),
+     * <URL></URL>,
+     * new HashMap<String, String>() {{
+     * put("function", "VIEW_ALL");
+     * <PARAMETERS></PARAMETERS>
+     * }},
+     * new UserRequest.ServerCallback() {
+     *
+     * @Override public void onSuccess(String result) {
+     * Log.d("JSON SUCCESS", "onSuccess: "+result);
+     * <DO SOMETHING AFTER SUCCESS>
+     * }
+     * }
+     * );
+     */
 
     public interface ServerCallback {
         void onSuccess(String result);
     }
 
 
-    public static void fetchData(Context pContext, String pURL, final Map<String ,String> pParameter, final ServerCallback callback) {
-        Log.d("JSON REQUEST","Request");
+    public static void fetchData(Context pContext, String pURL, final Map<String, String> pParameter, final ServerCallback callback) {
+        Log.d("JSON REQUEST", "Request");
         StringRequest stringRequest = new StringRequest(Request.Method.POST, pURL,
                 new Response.Listener<String>() {
                     @Override
