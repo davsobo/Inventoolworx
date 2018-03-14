@@ -51,8 +51,11 @@ public class ResultActivity extends AppCompatActivity {
                             try{
                                 JSONArray temp = new JSONArray(result);
                                 String sisa = temp.getJSONObject(0).getString("jumlah");
+                                String lokasi = temp.getJSONObject(0).getString("lokasi");
+                                TextView lokasiText = (TextView) findViewById(R.id.lokasiHasil);
                                 TextView sisaText = (TextView)findViewById(R.id.sisaHasil);
                                 sisaText.setText(sisa);
+                                lokasiText.setText(lokasi);
                             }
                             catch (JSONException e)
                             {

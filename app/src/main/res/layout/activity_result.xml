@@ -21,12 +21,15 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
             android:text="@string/hasil" />
+
         <RelativeLayout
+            android:id="@+id/relativeLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/hasilLabel"
-            android:layout_centerHorizontal="true"
-            >
+            android:layout_below="@+id/hasilLabel"
+            android:paddingTop="20dp"
+            android:layout_centerHorizontal="true">
+
             <TextView
                 android:id="@+id/jenisHasil"
                 android:layout_width="wrap_content"
@@ -61,7 +64,30 @@
                 android:layout_marginStart="20dp"
                 android:layout_toEndOf="@+id/bahanHasil"
                 android:hint="item4" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/jenisHasil"
+                android:text="Jenis" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/ukuranHasil"
+                android:text="Ukuran" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/bahanHasil"
+                android:text="Bahan" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/merkHasil"
+                android:text="Merk" />
+
         </RelativeLayout>
+
     </RelativeLayout>
 
     <RelativeLayout
@@ -77,7 +103,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
+            android:layout_marginStart="50dp"
             android:text="@string/sisa"
             android:id="@+id/sisaLabel" />
 
@@ -85,20 +111,28 @@
             android:id="@+id/sisaHasil"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@+id/sisaLabel"
-            android:layout_marginTop="5dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="80dp"
+            android:layout_toEndOf="@+id/sisaLabel"
             android:hint="sisanya berapa" />
 
-    </RelativeLayout>
+        <TextView
+            android:id="@+id/lokasiLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/sisaLabel"
+            android:layout_below="@+id/sisaLabel"
+            android:layout_marginTop="7dp"
+            android:text="@string/lokasi" />
 
-    <android.support.design.widget.FloatingActionButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_alignParentEnd="true"
-        android:src="@drawable/ic_add_circle_black_36dp"/>
+        <TextView
+            android:id="@+id/lokasiHasil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/sisaHasil"
+            android:layout_below="@+id/sisaHasil"
+            android:layout_marginTop="7dp"
+            android:hint="lokasee"/>
+    </RelativeLayout>
 
 </RelativeLayout>
