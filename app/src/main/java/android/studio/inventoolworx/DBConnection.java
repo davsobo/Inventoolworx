@@ -14,6 +14,9 @@ public class DBConnection {
     public static void setCOOKIE(String token){
         COOKIE = "__test=" + token + ";";
     }
+//    public static void setCOOKIE(String token){
+//        COOKIE = "__test=06b3ae1478d09a0f506fe8d46fc5ac81;";
+//    }
     //If server response is equal to this that means login is successful
     public static final String LOGIN_SUCCESS = "success";
 

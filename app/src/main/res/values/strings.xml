@@ -1,14 +1,16 @@
 <resources>
     <string name="app_name">Inventoolworx</string>
     <string name="hasil">Apakah benar ini yang ingin anda ambil?</string>
-    <array name="test">
+    <string name="sisa">Item Tersisa:</string>
+    <string name="req">Berapa jumlah yang ingin anda ambil?</string>
+    <string-array name="test">
         <item>str</item>
         <item>int</item>
         <item>agi</item>
         <item>vit</item>
         <item>dex</item>
         <item>end</item>
-    </array>
+    </string-array>
     <string-array name="numbers">
         <item>1</item>
         <item>2</item>

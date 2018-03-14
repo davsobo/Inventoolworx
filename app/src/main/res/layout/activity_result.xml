@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,12 +8,12 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:paddingBottom="10dp"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:paddingTop="10dp">
-
+        android:paddingTop="10dp"
+        android:id="@+id/upperbody">
         <TextView
             android:id="@+id/hasilLabel"
             android:layout_width="wrap_content"
@@ -21,42 +21,84 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
             android:text="@string/hasil" />
-
-        <TextView
-            android:id="@+id/jenisHasil"
+        <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/hasilLabel"
-            android:layout_below="@+id/hasilLabel"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:hint="item1" />
+            android:layout_below="@id/hasilLabel"
+            android:layout_centerHorizontal="true"
+            >
+            <TextView
+                android:id="@+id/jenisHasil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:hint="item1" />
 
-        <TextView
-            android:id="@+id/ukuranHasil"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/jenisHasil"
-            android:layout_marginStart="20dp"
-            android:layout_toEndOf="@+id/jenisHasil"
-            android:hint="item2" />
+            <TextView
+                android:id="@+id/ukuranHasil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/jenisHasil"
+                android:layout_marginStart="20dp"
+                android:layout_toEndOf="@+id/jenisHasil"
+                android:hint="item2" />
 
-        <TextView
-            android:id="@+id/bahanHasil"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/ukuranHasil"
-            android:layout_marginStart="20dp"
-            android:layout_toEndOf="@+id/ukuranHasil"
-            android:hint="item3" />
+            <TextView
+                android:id="@+id/bahanHasil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/ukuranHasil"
+                android:layout_marginStart="20dp"
+                android:layout_toEndOf="@+id/ukuranHasil"
+                android:hint="item3" />
 
-        <TextView
-            android:id="@+id/merkHasil"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/bahanHasil"
-            android:layout_marginStart="20dp"
-            android:layout_toEndOf="@+id/bahanHasil"
-            android:hint="item4" />
+            <TextView
+                android:id="@+id/merkHasil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/bahanHasil"
+                android:layout_marginStart="20dp"
+                android:layout_toEndOf="@+id/bahanHasil"
+                android:hint="item4" />
+        </RelativeLayout>
     </RelativeLayout>
-</android.support.constraint.ConstraintLayout>
+
+    <RelativeLayout
+        android:id="@+id/lowerbody"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/upperbody"
+        android:paddingBottom="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="@string/sisa"
+            android:id="@+id/sisaLabel" />
+
+        <TextView
+            android:id="@+id/sisaHasil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/sisaLabel"
+            android:layout_marginTop="5dp"
+            android:hint="sisanya berapa" />
+
+    </RelativeLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_alignParentEnd="true"
+        android:src="@drawable/ic_add_circle_black_36dp"/>
+
+</RelativeLayout>

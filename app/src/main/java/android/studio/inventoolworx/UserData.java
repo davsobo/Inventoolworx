@@ -33,6 +33,8 @@ public class UserData {
     public static ArrayList<String> mapJumlah;
     public static ArrayList<String> mapLokasi;
 
+    public static Map<String,String> userInput = new HashMap<>();
+    JSONArray nambahtambah = new JSONArray();
 
     /**
      * Use This Instead for the Spinner SH*T
@@ -78,8 +80,8 @@ public class UserData {
                                 mapTipe = new ArrayList<String>();
                                 mapUkuran = new ArrayList<String>();
                                 mapBahan = new ArrayList<String>();
-                                mapJumlah = new ArrayList<String>();
-                                mapLokasi = new ArrayList<String>();
+//                                mapJumlah = new ArrayList<String>();
+//                                mapLokasi = new ArrayList<String>();
                                 Log.d("Json Response: Inventory", "INVENTORY FETCH SUCCESS : " + mInventory.length() + "DATA");
                                 for (int i = 0; i < mInventory.length(); i++) {
                                     /*String temp = mInventory.getJSONObject(i).getString("merk") +  "\t" +  mInventory.getJSONObject(i).getString("tipe") +  "\t" +  mInventory.getJSONObject(i).getString("ukuran") +  "\t" +  mInventory.getJSONObject(i).getString("bahan") +  "\t" +  mInventory.getJSONObject(i).getString("jumlah") +  "\t" +  mInventory.getJSONObject(i).getString("lokasi");
@@ -90,10 +92,14 @@ public class UserData {
                                     mapTipe.add(mInventory.getJSONObject(i).getString("tipe"));
                                     mapUkuran.add(mInventory.getJSONObject(i).getString("ukuran"));
                                     mapBahan.add(mInventory.getJSONObject(i).getString("bahan"));
-                                    mapJumlah.add(mInventory.getJSONObject(i).getString("jumlah"));
-                                    mapLokasi.add(mInventory.getJSONObject(i).getString("lokasi"));
-                                    Log.d("Json Response: Inventory", "i = " + i + "\t" + mInventory.getJSONObject(i).getString("merk") + "\t" + mInventory.getJSONObject(i).getString("tipe") + "\t" + mInventory.getJSONObject(i).getString("ukuran") + "\t" + mInventory.getJSONObject(i).getString("bahan") + "\t" + mInventory.getJSONObject(i).getString("jumlah") + "\t" + mInventory.getJSONObject(i).getString("lokasi"));
+//                                    mapJumlah.add(mInventory.getJSONObject(i).getString("jumlah"));
+//                                    mapLokasi.add(mInventory.getJSONObject(i).getString("lokasi"));
+                                    Log.d("Json Response: Inventory", "i = " + i + "\t" + mInventory.getJSONObject(i).getString("merk") + "\t" + mInventory.getJSONObject(i).getString("tipe") + "\t" + mInventory.getJSONObject(i).getString("ukuran") + "\t" + mInventory.getJSONObject(i).getString("bahan"));
                                 }
+                                mapTipe= UserRequest.removeDuplicates(mapTipe);
+                                mapUkuran= UserRequest.removeDuplicates(mapUkuran);
+                                mapBahan = UserRequest.removeDuplicates(mapBahan);
+                                mapMerk = UserRequest.removeDuplicates(mapMerk);
                                 //mapInventory.put("merk", mapMerk);
 //                                mapInventory.put("tipe", mapTipe);
 //                                mapInventory.put("ukuran", mapUkuran);
@@ -211,7 +217,7 @@ public class UserData {
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
                 //Adding parameters to request
-                params.put("function", "VIEW_REMAIN");
+                params.put("function", "VIEW_ALL");
                 params.put("merk", remainMap.get("merk"));
                 params.put("tipe", remainMap.get("tipe"));
                 params.put("ukuran", remainMap.get("ukuran"));

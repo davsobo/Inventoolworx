@@ -14,6 +14,7 @@ import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
 
+    Boolean ok = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
                 UserData.remainMap.put("ukuran", "");
                 UserData.remainMap.put("bahan", "");
 
-
+                UserData.fetchDataInventory(getApplicationContext());
                 UserData.remainDataInventory(getApplicationContext(), new UserData.VolleyCallback() {
                     @Override
                     public void onSuccess(String string) {
@@ -58,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
                             }
                         }
                 );
+                ok = true;
             }
         });
         Log.d("JSON MAINACTIVITY", "SetChromeClient");
@@ -69,9 +71,11 @@ public class MainActivity extends AppCompatActivity {
 
     //*****-----Ini buat ganti ke page berikutnya-----*****//
     public void sendMessage(View view) {
-        Intent intent = new Intent(MainActivity.this, JenisActivity.class);
-        startActivity(intent);
-        finish();
+        if (ok == true) {
+            Intent intent = new Intent(MainActivity.this, JenisActivity.class);
+            startActivity(intent);
+            finish();
+        }
     }
 
     public String getCookie(String siteName, String CookieName) {
