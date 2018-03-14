@@ -31,9 +31,23 @@
         <WebView
             android:id="@+id/webview"
             android:layout_width="match_parent"
-            android:layout_height="20dp">
-
+            android:layout_height="0dp">
         </WebView>
+    <blink
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/progresBar1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="34dp">
+        <TextView
+            android:id="@+id/blinkies"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="Press to Continue"
+            android:visibility="invisible"
+            android:textColor="@color/White" />
+    </blink>
 
     </RelativeLayout>
 </android.support.constraint.ConstraintLayout>

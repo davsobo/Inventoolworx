@@ -134,5 +134,19 @@
             android:layout_marginTop="7dp"
             android:hint="lokasee"/>
     </RelativeLayout>
-
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/cardview_dark_background"
+        android:text="YES"
+        android:textColor="@color/White"
+        android:id="@+id/btnyes"
+        android:onClick="awyiss"
+        android:layout_below="@id/lowerbody"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="NO"
+        android:id="@+id/btnno"
+        android:layout_below="@id/btnyes"/>
 </RelativeLayout>

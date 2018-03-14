@@ -4,6 +4,8 @@
     <string name="sisa">Item Tersisa: </string>
     <string name="req">Berapa jumlah yang ingin anda ambil?</string>
     <string name="lokasi">Lokasi Item berada di: </string>
+    <string name="exit">Your data has been Recorded,
+        you may now exit the app</string>
     <string-array name="test">
         <item>str</item>
         <item>int</item>

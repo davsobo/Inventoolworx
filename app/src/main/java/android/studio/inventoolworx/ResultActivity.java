@@ -69,9 +69,10 @@ public class ResultActivity extends AppCompatActivity {
 
     }
 
-//    protected void jgntanyague (View view){
-//        JSONObject kk = new JSONObject(UserData.userInput);
-//
-//    }
+    protected void awyiss (View view){
+        Intent intent = new Intent(ResultActivity.this, SaveActivity.class);
+        startActivity(intent);
+        finish();
+    }
 }
 

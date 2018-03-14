@@ -9,6 +9,8 @@ import android.webkit.CookieManager;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -19,11 +21,16 @@ import java.util.HashMap;
 public class MainActivity extends AppCompatActivity {
 
     Boolean ok = false;
-
+    TextView blink;
+    ProgressBar bar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        bar = (ProgressBar)findViewById(R.id.progresBar1);
+        bar.setVisibility(View.VISIBLE);
+        blink = (TextView)findViewById(R.id.blinkies);
+        blink.setVisibility(View.INVISIBLE);
         Log.d("JSON MAINACTIVITY", "Try WebView");
         WebView myWebView = (WebView) findViewById(R.id.webview);
         Log.d("JSON MAINACTIVITY", "Make WebView");
@@ -85,6 +92,8 @@ public class MainActivity extends AppCompatActivity {
 //                                    UserData.mapBahan = UserRequest.removeDuplicates(UserData.mapBahan);
 //                                    UserData.mapMerk = UserRequest.removeDuplicates(UserData.mapMerk);
                                     ok = true;
+                                    blink.setVisibility(View.VISIBLE);
+                                    bar.setVisibility(View.INVISIBLE);
                                 }
                             }
                         }
