@@ -29,7 +29,7 @@ public class ResultActivity extends AppCompatActivity {
         TextView ukuranText = (TextView)findViewById(R.id.ukuranHasil);
         TextView bahanText = (TextView)findViewById(R.id.bahanHasil);
         TextView merkText = (TextView)findViewById(R.id.merkHasil);
-        jenisText.setText(UserData.userInput.get("jenis"));
+        jenisText.setText(UserData.userInput.get("tipe"));
         ukuranText.setText(UserData.userInput.get("ukuran"));
         bahanText.setText(UserData.userInput.get("bahan"));
         merkText.setText(UserData.userInput.get("merk"));
@@ -37,7 +37,7 @@ public class ResultActivity extends AppCompatActivity {
                 DBConnection.INVENTORY_URL,
                 new HashMap<String, String>() {{
                     put("function", "REMAIN");
-                    put("tipe", UserData.userInput.get("jenis"));
+                    put("tipe", UserData.userInput.get("tipe"));
                     put("ukuran", UserData.userInput.get("ukuran"));
                     put("bahan", UserData.userInput.get("bahan"));
                     put("merk", UserData.userInput.get("merk"));

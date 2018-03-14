@@ -10,11 +10,13 @@ public class UkuranActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ukuran);
         Intent intent = getIntent();
         String j = intent.getExtras().getString("jenis");
-        UserData.userInput.put("jenis",j);
+        UserData.userInput.put("tipe",j);
         Log.d("leeloo", "j=" +j);
+
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_ukuran);
+
     }
 }

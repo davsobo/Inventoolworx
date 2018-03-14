@@ -11,6 +11,10 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -45,9 +49,46 @@ public class BahanFragment extends ListFragment implements AdapterView.OnItemCli
     }
 
     @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Intent intent = new Intent(getActivity(), MerkActivity.class);
-        intent.putExtra("bahan", ((TextView) view).getText());
-        startActivity(intent);
+    public void onItemClick(AdapterView<?> parent,final View view, int position, long id) {
+        UserRequest.fetchData(
+                getActivity(),
+                DBConnection.INVENTORY_URL,
+                new HashMap<String, String>() {{
+                    put("function", "MASTERMERK");
+                    put("tipe",UserData.userInput.get("tipe"));
+                    put("ukuran",UserData.userInput.get("ukuran"));
+                    put("bahan",((TextView) view).getText().toString());
+                }},
+                new UserRequest.ServerCallback() {
+                    @Override
+                    public void onSuccess(String result) {
+                        Log.d("JSON SUCCESS", "onSuccess: " + result);
+                        if (UserRequest.isJSONValid(result)) {
+                            try {
+                                JSONArray temp = new JSONArray(result);
+                                UserData.mapMerk = new ArrayList<String>();
+//                                UserData.mapTipe = new ArrayList<String>();
+//                                UserData.mapUkuran = new ArrayList<String>();
+//                                UserData.mapBahan = new ArrayList<String>();
+
+                                for (int i = 0; i < temp.length(); i++) {
+                                    UserData.mapMerk.add(temp.getJSONObject(i).getString("merk"));
+//                                    UserData.mapTipe.add(temp.getJSONObject(i).getString("tipe"));
+//                                    UserData.mapUkuran.add(temp.getJSONObject(i).getString("ukuran"));
+//                                    UserData.mapBahan.add(temp.getJSONObject(i).getString("bahan"));
+                                }
+
+                                Intent intent = new Intent(getActivity(), MerkActivity.class);
+                                intent.putExtra("bahan", ((TextView) view).getText());
+                                startActivity(intent);
+
+                            } catch (JSONException e) {
+                                Log.d("JSON ERROR", "onSuccess: " + e.getMessage());
+                            }
+                        }
+                    }
+                }
+        );
+
     }
 }

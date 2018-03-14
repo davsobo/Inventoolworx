@@ -66,7 +66,7 @@ public class UserRequest {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         //Toast.makeText(getApplicationContext(), "The server unreachable: "+error, Toast.LENGTH_LONG).show();
-                        Log.d("Json Error", error.getMessage());
+                        Log.d("Json Error", error.toString());
 
                     }
                 }) {

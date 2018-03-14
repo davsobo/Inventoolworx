@@ -10,11 +10,16 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
 
     Boolean ok = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +43,8 @@ public class MainActivity extends AppCompatActivity {
                 UserData.remainMap.put("ukuran", "");
                 UserData.remainMap.put("bahan", "");
 
-                UserData.fetchDataInventory(getApplicationContext());
+                //UserData.fetchDataInventory(getApplicationContext());
+
                 UserData.remainDataInventory(getApplicationContext(), new UserData.VolleyCallback() {
                     @Override
                     public void onSuccess(String string) {
@@ -50,16 +56,40 @@ public class MainActivity extends AppCompatActivity {
                         getApplicationContext(),
                         DBConnection.INVENTORY_URL,
                         new HashMap<String, String>() {{
-                            put("function", "VIEW_ALL");
+                            put("function", "MASTERTIPE");
                         }},
                         new UserRequest.ServerCallback() {
                             @Override
                             public void onSuccess(String result) {
                                 Log.d("JSON SUCCESS", "onSuccess: " + result);
+                                if (UserRequest.isJSONValid(result)) {
+                                    try {
+                                        JSONArray temp = new JSONArray(result);
+//                                        UserData.mapMerk = new ArrayList<String>();
+                                        UserData.mapTipe = new ArrayList<String>();
+//                                        UserData.mapUkuran = new ArrayList<String>();
+//                                        UserData.mapBahan = new ArrayList<String>();
+
+                                        for (int i = 0; i < temp.length(); i++) {
+//                                            UserData.mapMerk.add(temp.getJSONObject(i).getString("merk"));
+                                            UserData.mapTipe.add(temp.getJSONObject(i).getString("tipe"));
+//                                            UserData.mapUkuran.add(temp.getJSONObject(i).getString("ukuran"));
+//                                            UserData.mapBahan.add(temp.getJSONObject(i).getString("bahan"));
+//                                            Log.d("Json: Inventory", "i = " + i + "\t" + temp.getJSONObject(i).getString("merk") + "\t" + temp.getJSONObject(i).getString("tipe") + "\t" + temp.getJSONObject(i).getString("ukuran") + "\t" + temp.getJSONObject(i).getString("bahan"));
+                                        }
+                                    } catch (JSONException e) {
+                                        Log.d("JSON ERROR", "onSuccess: " + e.getMessage());
+                                    }
+//                                    UserData.mapTipe= UserRequest.removeDuplicates(UserData.mapTipe);
+//                                    UserData.mapUkuran= UserRequest.removeDuplicates(UserData.mapUkuran);
+//                                    UserData.mapBahan = UserRequest.removeDuplicates(UserData.mapBahan);
+//                                    UserData.mapMerk = UserRequest.removeDuplicates(UserData.mapMerk);
+                                    ok = true;
+                                }
                             }
                         }
                 );
-                ok = true;
+
             }
         });
         Log.d("JSON MAINACTIVITY", "SetChromeClient");
