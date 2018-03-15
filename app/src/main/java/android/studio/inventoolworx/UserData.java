@@ -34,7 +34,7 @@ public class UserData {
     public static ArrayList<String> mapLokasi;
 
     public static Map<String,String> userInput = new HashMap<>();
-    public static Map<Integer,Map<String,String>> listUserInput = new HashMap<Integer, Map<String, String>>();
+    public static ArrayList<Map<String,String>> listUserInput = new ArrayList<Map<String, String>>();
     public static int nListUserInput = 0;
     //Map<String,String> nambahtambah = new HashMap<>();
 

@@ -56,6 +56,8 @@ public class ResultActivity extends AppCompatActivity {
                                 TextView sisaText = (TextView)findViewById(R.id.sisaHasil);
                                 sisaText.setText(sisa);
                                 lokasiText.setText(lokasi);
+                                UserData.userInput.put("jumlah",sisa);
+                                UserData.userInput.put("lokasi",lokasi);
                             }
                             catch (JSONException e)
                             {
@@ -70,15 +72,16 @@ public class ResultActivity extends AppCompatActivity {
     }
 
     protected void awyiss (View view){
-        UserData.listUserInput.put(UserData.nListUserInput ,UserData.userInput);
+        UserData.listUserInput.add(UserData.userInput);
+        Log.d("JSON INPUTSTRING",UserData.userInput.toString());
         UserData.nListUserInput++;
-        UserData.userInput.clear();
-        Intent intent = new Intent(ResultActivity.this, SaveActivity.class);
+        //UserData.userInput.clear();
+        Intent intent = new Intent(ResultActivity.this, TakenActivity.class);
         startActivity(intent);
         finish();
     }
     protected void awnouh (View view){
-        UserData.userInput.clear();
+        //UserData.userInput.clear();
         Intent intent = new Intent(ResultActivity.this, TakenActivity.class);
         startActivity(intent);
         finish();

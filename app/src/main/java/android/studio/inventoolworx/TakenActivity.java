@@ -1,9 +1,12 @@
 package android.studio.inventoolworx;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.InputType;
+import android.text.method.ScrollingMovementMethod;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,18 +26,25 @@ public class TakenActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_taken);
         TableLayout tl=(TableLayout)findViewById(R.id.maintable);
-        tl.addView(CreateRow(new HashMap<String,String>(){{
+        Log.d("JSON DATA", "onCreate: "+UserData.listUserInput.toString());
+        for(Map<String, String> temp: UserData.listUserInput)
+        {
+            Log.d("JSON DATA", "onCreate: "+temp);
+            tl.addView(CreateRow(temp));
+        }
+        /*tl.addView(CreateRow(new HashMap<String,String>(){{
             put("tipe","a");
             put("ukuran","b");
             put("bahan","c");
             put("merk","d");
             put("jumlah","e");
             put("lokasi","f");
-        }}));
+        }}));*/
     }
 
     private TableRow CreateRow (Map<String,String> data)
     {
+        Log.d("JSON DATA", "CreateRow: "+data);
         final float scale = getApplicationContext().getResources().getDisplayMetrics().density;
         int trHeight = (int) (80 * scale + 0.5f);
         int trWidth = (int) (67 * scale + 0.5f);
@@ -51,6 +61,7 @@ public class TakenActivity extends AppCompatActivity {
         text.setGravity(Gravity.CENTER | Gravity.TOP);
         text.setMinHeight(300);
         text.setSingleLine(false);
+        text.setMovementMethod(new ScrollingMovementMethod());
         text.setText("Tipe:"+ data.get("tipe")+
                 "\nUkuran:"+ data.get("ukuran")+
                 "\nBahan:"+ data.get("bahan")+
@@ -91,5 +102,11 @@ public class TakenActivity extends AppCompatActivity {
         result.addView(cancel);
 
         return result;
+    }
+    public void widgetTambah(View view)
+    {
+        Intent intent = new Intent(TakenActivity.this, JenisActivity.class);
+        startActivity(intent);
+        finish();
     }
 }
