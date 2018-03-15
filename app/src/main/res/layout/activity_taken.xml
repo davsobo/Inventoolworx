@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/maintable"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TableRow
+        android:id="@+id/tableRow1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_weight="6"
+            android:background="#dcdcdc"
+            android:gravity="center"
+            android:padding="5dip"
+            android:text="Item"
+            android:textColor="#000000" />
+
+        <TextView
+            android:layout_weight="1"
+            android:background="#cac9c9"
+            android:gravity="center"
+            android:padding="5dip"
+            android:text="Ambil"
+            android:textColor="#000000" />
+
+        <TextView
+            android:layout_weight="1"
+            android:background="#dcdcdc"
+            android:gravity="center"
+            android:padding="5dip"
+            android:text="Batal"
+            android:textColor="#000000" />
+
+    </TableRow>
+
+
+</TableLayout>

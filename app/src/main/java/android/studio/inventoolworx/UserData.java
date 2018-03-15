@@ -34,7 +34,8 @@ public class UserData {
     public static ArrayList<String> mapLokasi;
 
     public static Map<String,String> userInput = new HashMap<>();
-    JSONArray nambahtambah = new JSONArray();
+    Map<Integer,Map<String,String>> listNambahtambah = new HashMap<Integer, Map<String, String>>();
+    Map<String,String> nambahtambah = new HashMap<>();
 
     /**
      * Use This Instead for the Spinner SH*T

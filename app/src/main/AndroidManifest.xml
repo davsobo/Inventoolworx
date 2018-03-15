@@ -21,12 +21,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".JenisActivity"></activity>
+        <activity android:name=".JenisActivity" />
         <activity android:name=".UkuranActivity" />
         <activity android:name=".BahanActivity" />
         <activity android:name=".ResultActivity" />
         <activity android:name=".MerkActivity" />
-        <activity android:name=".SaveActivity"></activity>
+        <activity android:name=".SaveActivity" />
+        <activity android:name=".TakenActivity" />
+        <activity android:name=".TakenFragment"></activity>
     </application>
 
 </manifest>
