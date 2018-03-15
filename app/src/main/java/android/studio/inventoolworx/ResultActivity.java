@@ -70,7 +70,16 @@ public class ResultActivity extends AppCompatActivity {
     }
 
     protected void awyiss (View view){
+        UserData.listUserInput.put(UserData.nListUserInput ,UserData.userInput);
+        UserData.nListUserInput++;
+        UserData.userInput.clear();
         Intent intent = new Intent(ResultActivity.this, SaveActivity.class);
+        startActivity(intent);
+        finish();
+    }
+    protected void awnouh (View view){
+        UserData.userInput.clear();
+        Intent intent = new Intent(ResultActivity.this, TakenActivity.class);
         startActivity(intent);
         finish();
     }
