@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -73,16 +74,24 @@ public class ResultActivity extends AppCompatActivity {
     }
 
     public void awyiss (View view){
-        Map<String,String> a = new HashMap<String,String>();
-        a.put("tipe",UserData.userInput.get("tipe"));
-        a.put("bahan",UserData.userInput.get("bahan"));
-        a.put("ukuran",UserData.userInput.get("ukuran"));
-        a.put("jumlah",UserData.userInput.get("jumlah"));
-        a.put("lokasi",UserData.userInput.get("lokasi"));
-        a.put("merk",UserData.userInput.get("merk"));
-        UserData.listUserInput.add(a);
-        Log.d("JSON INPUTSTRING",UserData.userInput.toString());
-        UserData.nListUserInput++;
+        if(UserData.listUserInput.contains(UserData.userInput))
+        {
+
+        }
+        else
+        {
+            Map<String,String> a = new HashMap<String,String>();
+            a.put("tipe",UserData.userInput.get("tipe"));
+            a.put("bahan",UserData.userInput.get("bahan"));
+            a.put("ukuran",UserData.userInput.get("ukuran"));
+            a.put("jumlah",UserData.userInput.get("jumlah"));
+            a.put("lokasi",UserData.userInput.get("lokasi"));
+            a.put("merk",UserData.userInput.get("merk"));
+            UserData.listUserInput.add(a);
+            Log.d("JSON INPUTSTRING",UserData.userInput.toString());
+            UserData.nListUserInput++;
+
+        }
         //UserData.userInput.clear();
         Intent intent = new Intent(ResultActivity.this, TakenActivity.class);
         startActivity(intent);
