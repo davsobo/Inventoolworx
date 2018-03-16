@@ -11,6 +11,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -71,8 +72,15 @@ public class ResultActivity extends AppCompatActivity {
 
     }
 
-    protected void awyiss (View view){
-        UserData.listUserInput.add(UserData.userInput);
+    public void awyiss (View view){
+        Map<String,String> a = new HashMap<String,String>();
+        a.put("tipe",UserData.userInput.get("tipe"));
+        a.put("bahan",UserData.userInput.get("bahan"));
+        a.put("ukuran",UserData.userInput.get("ukuran"));
+        a.put("jumlah",UserData.userInput.get("jumlah"));
+        a.put("lokasi",UserData.userInput.get("lokasi"));
+        a.put("merk",UserData.userInput.get("merk"));
+        UserData.listUserInput.add(a);
         Log.d("JSON INPUTSTRING",UserData.userInput.toString());
         UserData.nListUserInput++;
         //UserData.userInput.clear();

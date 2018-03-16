@@ -17,6 +17,10 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -111,11 +115,31 @@ public class TakenActivity extends AppCompatActivity {
     }
     public void nhentai(View view )
     {
-
+        final JSONArray json = new JSONArray(UserData.listUserInput);
+        UserRequest.fetchData(
+                getApplicationContext(),
+                DBConnection.INVENTORY_URL,
+                new HashMap<String, String>() {{
+                    put("function", "BATCHUPDATE");
+                    put("json", json.toString());
+                }},
+                new UserRequest.ServerCallback() {
+                    @Override
+                    public void onSuccess(String result) {
+                        Log.d("JSON SUCCESS", "onSuccess: " + result);
+                        Intent intent = new Intent(TakenActivity.this, SaveActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                }
+        );
     }
 
     public void fakku(View view)
     {
-
+        UserData.listUserInput.clear();
+        Intent intent = new Intent(TakenActivity.this, TakenActivity.class);
+        startActivity(intent);
+        finish();
     }
 }
