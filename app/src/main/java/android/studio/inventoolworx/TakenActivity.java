@@ -109,4 +109,13 @@ public class TakenActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
+    public void nhentai(View view )
+    {
+
+    }
+
+    public void fakku(View view)
+    {
+
+    }
 }

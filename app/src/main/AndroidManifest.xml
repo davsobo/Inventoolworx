@@ -23,12 +23,13 @@
         </activity>
         <activity android:name=".JenisActivity" />
         <activity android:name=".UkuranActivity" />
+        <activity android:name=".LoginActivity"/>
         <activity android:name=".BahanActivity" />
         <activity android:name=".ResultActivity" />
         <activity android:name=".MerkActivity" />
         <activity android:name=".SaveActivity" />
         <activity android:name=".TakenActivity" />
-        <activity android:name=".TakenFragment"></activity>
+        <!--<activity android:name=".TakenFragment"></activity>-->
     </application>
 
 </manifest>

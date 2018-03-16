@@ -378,81 +378,10 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
      * the user.
      */
 
-    /*private boolean login() {
-        //Getting values from edit texts
-        final String email = mEmailView.getText().toString().trim().toLowerCase();
-        final String password = mPasswordView.getText().toString().trim();
 
-        *//*pDialog.setMessage("Login Process...");
-        showDialog();*//*
-        //Creating a string request
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, DBConnection.LOGIN_URL,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        //Toast.makeText(getApplicationContext(), response, Toast.LENGTH_LONG).show();
-                        Log.d("Json Response", response);
-                        //If we are getting success from server
-                        if (response.length() > 10) {
-                            try {
-                                mUserData = new JSONArray(response);
-                                loginResult = true;
-                                Log.d("Json Response", "LOGIN SUCCESS");
-                                Log.d("Json Response", "Email: " + mUserData.getJSONObject(0).getString("email"));
-                                UserData.setmEmail(mUserData.getJSONObject(0).getString("email"));
-                                UserData.setmLevel(mUserData.getJSONObject(0).getString("ulevel"));
-
-
-                            } catch (JSONException e) {
-                                Log.d("Json ERROR", "Content: " + e.toString() + " -- Message: " + e.getMessage());
-                                Toast.makeText(getApplicationContext(), "JSON ERROR: " + e.getMessage(), Toast.LENGTH_LONG).show();
-                            }
-
-                            Toast.makeText(getApplicationContext(), "Login Success", Toast.LENGTH_LONG).show();
-
-                            loginResult = true;
-                        } else {
-                            //Displaying an error message on toast
-                            Toast.makeText(getApplicationContext(), "Invalid username or password", Toast.LENGTH_LONG).show();
-                            Log.d("Json ERROR", "Login Failed");
-
-                        }
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(getApplicationContext(), "The server unreachable: " + error, Toast.LENGTH_LONG).show();
-                        Log.d("Json Error", error.getMessage() + " -- " + error.toString());
-
-                    }
-                }) {
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String, String> params = new HashMap<>();
-                //Adding parameters to request
-                params.put("email", email);
-                params.put("password", password);
-
-                //returning parameter
-                return params;
-            }
-
-            @Override
-            public Map<String, String> getHeaders() throws AuthFailureError {
-                Map<String, String> params = new HashMap<String, String>();
-                params.put("Cookie", DBConnection.COOKIE);
-                return params;
-            }
-        };
-
-        //Adding the string request to the queue
-        Volley.newRequestQueue(this).add(stringRequest);
-        return loginResult;
-    }*/
     private void loginSuccess(int level) {
         //UserData.fetchDataInventory(getApplicationContext());
-        UserRequest.fetchData(
+        /*UserRequest.fetchData(
                 getApplicationContext(),
                 DBConnection.INVENTORY_URL,
                 new HashMap<String, String>() {{
@@ -484,7 +413,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                                     UserData.mapJumlah.add(mInventory.getJSONObject(i).getString("jumlah"));
                                     UserData.mapLokasi.add(mInventory.getJSONObject(i).getString("lokasi"));
                                     UserData.valSpinner.add(mInventory.getJSONObject(i).getString("merk") + "," + mInventory.getJSONObject(i).getString("tipe") + "," + mInventory.getJSONObject(i).getString("ukuran") + "," + mInventory.getJSONObject(i).getString("bahan") + "," + mInventory.getJSONObject(i).getString("lokasi"));
-                                    UserData.mapSpinner.put(i,mInventory.getJSONObject(i).getString("id"));
+                                    UserData.mapSpinner.put(i, mInventory.getJSONObject(i).getString("id"));
                                     Log.d("Json Response:Inventory", "i = " + i + "\t" + mInventory.getJSONObject(i).getString("merk") + "\t" + mInventory.getJSONObject(i).getString("tipe") + "\t" + mInventory.getJSONObject(i).getString("ukuran") + "\t" + mInventory.getJSONObject(i).getString("bahan") + "\t" + mInventory.getJSONObject(i).getString("jumlah") + "\t" + mInventory.getJSONObject(i).getString("lokasi"));
                                 }
                             } catch (JSONException e) {
@@ -493,18 +422,19 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                         } else {
                             Log.d("Json ERROR", "Login Failed");
                         }
-                        if (Integer.parseInt(UserData.getmLevel()) == 1) {
-                            Intent intent = new Intent(LoginActivity.this, TakenActivity.class);
-                            startActivity(intent);
-                            finish();
-                        } else {
-                            Intent intent = new Intent(LoginActivity.this, TakenActivity.class);
-                            startActivity(intent);
-                            finish();
-                        }
+
                     }
                 }
-        );
+        );*/
+        if (Integer.parseInt(UserData.getmLevel()) == 1) {
+            Intent intent = new Intent(LoginActivity.this, TakenActivity.class);
+            startActivity(intent);
+            finish();
+        } else {
+            Intent intent = new Intent(LoginActivity.this, TakenActivity.class);
+            startActivity(intent);
+            finish();
+        }
 
     }
 }

@@ -111,8 +111,8 @@ public class MainActivity extends AppCompatActivity {
     //*****-----Ini buat ganti ke page berikutnya-----*****//
     public void sendMessage(View view) {
         if (ok == true) {
-            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-            startActivity(intent);
+            Intent i = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(i);
             finish();
         }
     }
