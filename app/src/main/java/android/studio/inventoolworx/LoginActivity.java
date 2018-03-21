@@ -235,7 +235,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                                     Log.d("Json Login", "Email: " + mUserData.getJSONObject(0).getString("email"));
                                     UserData.setmEmail(mUserData.getJSONObject(0).getString("email"));
                                     UserData.setmLevel(mUserData.getJSONObject(0).getString("ulevel"));
-
+                                    UserData.listUserInput.clear();
 
                                     loginSuccess(Integer.parseInt(UserData.getmLevel(), 10));
 
@@ -426,15 +426,11 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                     }
                 }
         );*/
-        if (Integer.parseInt(UserData.getmLevel()) == 1) {
-            Intent intent = new Intent(LoginActivity.this, TakenActivity.class);
-            startActivity(intent);
-            finish();
-        } else {
-            Intent intent = new Intent(LoginActivity.this, TakenActivity.class);
-            startActivity(intent);
-            finish();
-        }
+
+        Intent intent = new Intent(LoginActivity.this, TakenActivity.class);
+        startActivity(intent);
+        finish();
+
 
     }
 }

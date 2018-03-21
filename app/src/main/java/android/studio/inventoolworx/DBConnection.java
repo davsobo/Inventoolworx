@@ -9,7 +9,7 @@ public class DBConnection {
 //    public static final String LOGIN_URL = "http://192.168.42.64//inventoworx//login.php";
     public static final String LOGIN_URL = "http://invento.html-5.me//login.php";
 //    public static final String INVENTORY_URL = "http://192.168.42.64//inventoworx//inventory.php";
-    public static final String INVENTORY_URL = "http://invento.html-5.me//inventory.php";
+    public static final String INVENTORY_URL = "http://invento.html-5.me/inventory.php";
     public static String COOKIE = "";
     public static void setCOOKIE(String token){
         COOKIE = "__test=" + token + ";";

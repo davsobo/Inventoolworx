@@ -56,9 +56,10 @@ public class UserRequest {
                     @Override
                     public void onResponse(String response) {
                         //Toast.makeText(getApplicationContext(), response, Toast.LENGTH_LONG).show();
-                        Log.d("Json Response", response);
-                        callback.onSuccess(response);
-
+                        if (response != null && response.length() > 0) {
+                            Log.d("Json Response", response);
+                            callback.onSuccess(response);
+                        }
 
                     }
                 },
@@ -73,6 +74,7 @@ public class UserRequest {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = pParameter;
+                params.put("user", UserData.getmEmail());
 
                 return params;
 //                return parameters;

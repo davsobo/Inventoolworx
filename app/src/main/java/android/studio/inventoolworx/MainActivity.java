@@ -52,12 +52,12 @@ public class MainActivity extends AppCompatActivity {
 
                 //UserData.fetchDataInventory(getApplicationContext());
 
-                UserData.remainDataInventory(getApplicationContext(), new UserData.VolleyCallback() {
+                /*UserData.remainDataInventory(getApplicationContext(), new UserData.VolleyCallback() {
                     @Override
                     public void onSuccess(String string) {
                         Log.d("JSON SUCCESS", "onSuccess: HERE i AM as A success");
                     }
-                });
+                });*/
 
                 UserRequest.fetchData(
                         getApplicationContext(),

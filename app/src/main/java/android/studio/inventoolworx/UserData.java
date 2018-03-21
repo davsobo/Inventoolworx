@@ -23,8 +23,8 @@ import java.util.Map;
  */
 
 public class UserData {
-    private static String mEmail;
-    private static String mLevel;
+    private static String mEmail = "";
+    private static String mLevel = "";
 
     public static ArrayList<String> mapMerk;
     public static ArrayList<String> mapTipe;
